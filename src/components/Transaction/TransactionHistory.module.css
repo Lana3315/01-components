@@ -1,0 +1,27 @@
+.transactionhistory {
+  width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  color: #000;
+  font-size: medium;
+  border: 2px solid black;
+}
+.item {
+  display: flex;
+  width: 600px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: #fff;
+  border: 2px solid black;
+  margin: 0 auto;
+}
+.items {
+  width: 100px;
+  margin: 0 auto;
+}
+.head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 600px;
+}
