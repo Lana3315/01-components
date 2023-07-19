@@ -1,28 +1,36 @@
-import {Profile} from 'components/Profile/Profile'
-import user from 'components/Profile/user.json'
-import { Statistics } from 'components/Statistics/Statistics'
-import data from 'components/Statistics/data.json'
-import { FriendList } from 'components/FriendList/FriendList'
-import friends from 'components/FriendList/friends.json'
-import { TransactionHistory } from 'components/Transaction/TransactionHistory'
-import transactions from 'components/Transaction/transactions.json'
-export const App = () => {
-  return (
-    <>
-    <Profile
-  username={user.username}
-  tag={user.tag}
-  location={user.location}
-  avatar={user.avatar}
-  stats={user.stats}
-      />
-      <Statistics title="Upload stats"
-        stats={data} />
-      <FriendList friends={friends} />;
-      <TransactionHistory items={transactions} />;
+import React, { Component } from "react";
+import Section from './Section/Section'
+import FeedbackOptions from './FeedbackOptions/FeedbackOptions'
+import Statistics from './Statistics/Statistics'
+// import Notification  from './Notification/Notification';
 
-    </>
-  );
-};
+
+
+
+class App extends Component {
+ state = {
+  good: 0,
+  neutral: 0,
+  bad: 0
+}
+  leaveFeedback = ({ target: { name } }) => {
+    this.setState(prevState => ({
+      [name]: prevState[name] + 1,
+    }));
+  };
+  render() {
+    return (
+      <>
+       <Section title="Please leave feedback">
+        <FeedbackOptions
+           options={Object.keys(this.state)}
+            leaveFeedback={this.leaveFeedback}
+        />
+        </Section>
+        <Statistics good={this.state.good} neutral={this.state.neutral} bad={this.state.bad}></Statistics>
+      </>
+    );
+  }
+}
 
 export default App;

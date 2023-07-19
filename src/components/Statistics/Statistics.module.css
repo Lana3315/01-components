@@ -1,46 +1,11 @@
-.statistics {
-  width: 400px;
+.list {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  background-color: #fff;
-}
-
-.title {
-  font-weight: bold;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: gray;
-}
-.statlist {
-  width: 400px;
-  height: 100px;
+  gap: 20px;
   list-style: none;
-  display: flex;
   padding-left: 0;
-  margin: 0 auto;
-  background-color: #700691;
 }
-.item {
+.positivePercentage {
   display: flex;
-  flex-direction: column;
-  width: 100px;
-  height: 100%;
-
   justify-content: center;
-  border: 1px solid black;
-}
-.label {
-  font-weight: bold;
-  font-size: 1rem;
-  color: rgb(185, 185, 185);
-  margin: 0 auto;
-}
-.percentage {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: rgb(239, 238, 238);
-  margin: 0 auto;
 }
