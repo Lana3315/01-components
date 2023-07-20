@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Counter from "./Counter/Counter";
+// import Counter from "./Counter/Counter";
+import Dropdown from "./Dropdown/Dropdown";
 
 
 
@@ -17,7 +18,8 @@ class App extends Component {
  
     return (
       <>
-        <Counter initialValue={0 } />
+        {/* <Counter initialValue={0} /> */}
+        <Dropdown/>
       </>
     );
   }
