@@ -5,6 +5,9 @@ class Colorpicker extends Component {
   state = {
     activeOptionIdx: 0,
   }
+  setActiveIndex = (index) => {
+  this.setState({ activeOptionIdx: index })
+  };
 
   makeOptionClassName = index => {
     const optionClasses = ['ColorPicker_option'];
@@ -26,6 +29,7 @@ class Colorpicker extends Component {
             return (
               <button
                 key={label}
+                onClick={() =>this.setActiveIndex(index)}
                 className={optionClassNames}
                 style={{ backgroundColor: color }}
               ></button>
