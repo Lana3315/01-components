@@ -19,7 +19,10 @@ class Colorpicker extends Component {
   };
 
   render() {
-    const {label} = this.props.options[this.state.activeOptionIdx]
+    const { activeOptionIdx } = this.state;
+    const { options } = this.props;
+    const { label } = options[activeOptionIdx];
+  
 
     return (
 
@@ -27,7 +30,7 @@ class Colorpicker extends Component {
         <h2 className='ColorPicker_title'>Color Picker</h2>
         <p> Choose color: {label}</p>
         <div>
-          {this.props.options.map(({ label, color }, index) => {
+          {options.map(({ label, color }, index) => {
             const optionClassNames = this.makeOptionClassName(index);
            
             return (
