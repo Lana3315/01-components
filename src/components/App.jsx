@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import Counter from "./Counter";
 // import Dropdown from "./Dropdown/Dropdown";
 // import Colorpicker from './Colorpicker/Colorpicker'
-import TodoList from "./TodoList/TodoList";
+// import TodoList from "./TodoList/TodoList";
 
   // const colorPickerOptions = [
   //   { label: 'red', color: '#ff0000' },
@@ -17,13 +17,15 @@ import TodoList from "./TodoList/TodoList";
 
 class App extends Component {
   state = {
-    todos: [
-      { id: 'id-1', text: 'CSS', completed: false },
-      { id: 'id-2', text: 'HTML', completed: false },
-      { id: 'id-3', text: 'JavaScript', completed: false },
-      { id: 'id-4', text: 'React', completed: true },
-      {id:'id-5', text:'Redux', completed: false},
-  ],
+    // todos: [
+    //   { id: 'id-1', text: 'CSS', completed: false },
+    //   { id: 'id-2', text: 'HTML', completed: false },
+    //   { id: 'id-3', text: 'JavaScript', completed: false },
+    //   { id: 'id-4', text: 'React', completed: true },
+    //   {id:'id-5', text:'Redux', completed: false},
+    // ],
+    name: '',
+    tag:'',
   }
 
   deleteTodos = (todoId) => {
@@ -31,12 +33,32 @@ class App extends Component {
     todos: prevState.todos.filter(todo => todo.id !== todoId),
   }))
   }
-  render() {
-    const { todos } = this.state;
 
+  handleChange = (event) => {
+    const { name, value } = event.currentTarget;
+    // console.log(event.currentTarget)
+    // console.log(event.currentTarget.name)
+    // console.log(event.currentTarget.value)
+    this.setState({
+      [name]: value,
+    })
+    
+  }
+  render() {
+    // const { todos } = this.state;
+  
     return (
       <>
-        <TodoList todos={todos} onDeleteTodo={this.deleteTodos } />
+        <form action="">
+          <label > Name
+            <input type="text" value={this.state.name}
+              name="name"
+              onChange={this.handleChange} /></label>
+          <label > Tag
+            <input type="text"
+          name="tag"    value={this.state.tag} onChange={this.handleChange} /></label>
+          </form>
+        {/* <TodoList todos={todos} onDeleteTodo={this.deleteTodos } /> */}
         {/* <Counter initialValue={0} /> */}
         {/* <Dropdown/> */}
         {/* <Colorpicker options={colorPickerOptions } /> */}
