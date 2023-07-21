@@ -31,17 +31,23 @@ class App extends Component {
     return Object.values(this.state).reduce((total, curr) => (total + curr))
     
   };
+ 
   render() {
-  const total = this.countTotalFeedBack();
+    const total = this.countTotalFeedBack();
+
     return (
       <>
         <div>
           <div>
           <h1>Please leave feedback</h1>
             <ul>
-            <li><button type="button" name ="good"onClick={this.handleBtnClick}>Good</button ></li>
-            <li><button type="button" name="neutral" onClick={this.handleBtnClick}>Neutral</button></li>
-            <li><button type="button" name="bad"onClick={this.handleBtnClick}>Bad</button></li>
+            {/* {Object.key(this.state).map((option) => (
+          <li key={option}>
+          <button name={option} type="button" onClick={this.handleBtnClick } >
+            {option}
+          </button>
+        </li>
+      ))} */}
             </ul>
           </div>
           <div>
@@ -50,7 +56,7 @@ class App extends Component {
               <li><p>Good:{this.state.good }</p></li>
             <li><p>Neutral:{this.state.neutral}</p></li>
               <li><p>Bad:{this.state.bad}</p></li>
-               <p>Total: {total}</p>
+              <li><p>Total: {total}</p></li> 
              <li><p>Positive feedback:%</p></li>
             </ul>
             </div>
