@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import Counter from "./Counter";
 // import Dropdown from "./Dropdown/Dropdown";
 // import Colorpicker from './Colorpicker/Colorpicker'
+import TodoList from "./TodoList/TodoList";
 
   // const colorPickerOptions = [
   //   { label: 'red', color: '#ff0000' },
@@ -16,51 +17,26 @@ import React, { Component } from "react";
 
 class App extends Component {
   state = {
-    good: 0,
-    neutral: 0,
-    bad:0
+    todos: [
+      { id: 'id-1', text: 'CSS', completed: false },
+      { id: 'id-2', text: 'HTML', completed: false },
+      { id: 'id-3', text: 'JavaScript', completed: false },
+      { id: 'id-4', text: 'React', completed: true },
+      {id:'id-5', text:'Redux', completed: false},
+  ],
   }
-  
-  handleBtnClick = (event) => {
-  const { name } = event.target;
-    this.setState((prevState) => ({
-    [name]: prevState[name] + 1,
-    }));
+
+  deleteTodos = (todoId) => {
+    this.setState(prevState => ({
+    todos: prevState.todos.filter(todo => todo.id !== todoId),
+  }))
   }
-   countTotalFeedBack = () => {
-    return Object.values(this.state).reduce((total, curr) => (total + curr))
-    
-  };
- 
   render() {
-    const total = this.countTotalFeedBack();
+    const { todos } = this.state;
 
     return (
       <>
-        <div>
-          <div>
-          <h1>Please leave feedback</h1>
-            <ul>
-            {/* {Object.key(this.state).map((option) => (
-          <li key={option}>
-          <button name={option} type="button" onClick={this.handleBtnClick } >
-            {option}
-          </button>
-        </li>
-      ))} */}
-            </ul>
-          </div>
-          <div>
-          <h2>Statics</h2>
-          <ul>
-              <li><p>Good:{this.state.good }</p></li>
-            <li><p>Neutral:{this.state.neutral}</p></li>
-              <li><p>Bad:{this.state.bad}</p></li>
-              <li><p>Total: {total}</p></li> 
-             <li><p>Positive feedback:%</p></li>
-            </ul>
-            </div>
-        </div>
+        <TodoList todos={todos} onDeleteTodo={this.deleteTodos } />
         {/* <Counter initialValue={0} /> */}
         {/* <Dropdown/> */}
         {/* <Colorpicker options={colorPickerOptions } /> */}
