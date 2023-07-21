@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+// import Form from './Form/Form'
+// import ContactForm from './ContactForm/ContactForm'
 // import Counter from "./Counter";
 // import Dropdown from "./Dropdown/Dropdown";
 // import Colorpicker from './Colorpicker/Colorpicker'
@@ -24,40 +26,38 @@ class App extends Component {
     //   { id: 'id-4', text: 'React', completed: true },
     //   {id:'id-5', text:'Redux', completed: false},
     // ],
-    name: '',
-    tag:'',
+        contacts: [
+      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+    ],
+   
   }
 
-  deleteTodos = (todoId) => {
-    this.setState(prevState => ({
-    todos: prevState.todos.filter(todo => todo.id !== todoId),
-  }))
+  // deleteTodos = (todoId) => {
+  //   this.setState(prevState => ({
+  //   todos: prevState.todos.filter(todo => todo.id !== todoId),
+  // }))
+  // }
+  formSubmitHnadler = (data) => {
+  console.log(data)
   }
-
-  handleChange = (event) => {
-    const { name, value } = event.currentTarget;
-    // console.log(event.currentTarget)
-    // console.log(event.currentTarget.name)
-    // console.log(event.currentTarget.value)
-    this.setState({
-      [name]: value,
-    })
-    
-  }
+  
+  // addContact = data => {
+  //   const { contacts } = this.state;
+  //   const newContact = {
+  //     id: nanoid(),
+  //     ...data,
+  //   };
+  // }
   render() {
     // const { todos } = this.state;
-  
+      // const { name } = this.state;
     return (
       <>
-        <form action="">
-          <label > Name
-            <input type="text" value={this.state.name}
-              name="name"
-              onChange={this.handleChange} /></label>
-          <label > Tag
-            <input type="text"
-          name="tag"    value={this.state.tag} onChange={this.handleChange} /></label>
-          </form>
+          {/* <ContactForm addContact={this.addContact} /> */}
+        {/* <Form onSubmit={this.formSubmitHnadler} /> */}
         {/* <TodoList todos={todos} onDeleteTodo={this.deleteTodos } /> */}
         {/* <Counter initialValue={0} /> */}
         {/* <Dropdown/> */}
